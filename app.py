@@ -1,4 +1,4 @@
-from flask import Flask, request, json
+from flask import Flask, request, json, Response
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -15,7 +15,11 @@ def operation():
 
         if operation == 'addition':
             sum = x + y
-            return { "slackUsername": slackUsername, "operation_type" : operation, "result": sum }
+            data = { "slackUsername": slackUsername, "operation_type" : operation, "result": sum }
+
+            response = json.dumps(data, sort_keys=False)
+            return Response(response, mimetype='application/json')
+
         elif operation == 'subtraction':
             minus = x - y
             return { "slackUsername": slackUsername, "operation_type" : operation, "result": minus }
