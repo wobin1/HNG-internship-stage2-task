@@ -22,10 +22,17 @@ def operation():
 
         elif operation == 'subtraction':
             minus = x - y
-            return { "slackUsername": slackUsername, "operation_type" : operation, "result": minus }
+            data = { "slackUsername": slackUsername, "operation_type" : operation, "result": minus }
+
+            response = json.dumps(data, sort_keys=False)
+            return Response(response, mimetype='application/json')
+
         elif operation == 'multiplication':
             times = x * y
-            { "slackUsername": slackUsername, "operation_type" : operation, "result": times }
+            data = { "slackUsername": slackUsername, "operation_type" : operation, "result": times }
+
+            response = json.dumps(data, sort_keys=False)
+            return Response(response, mimetype='application/json')
         else:
             return {"response": "Operation must be either addition, multiplication or Subtration"}
     
