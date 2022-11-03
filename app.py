@@ -15,21 +15,21 @@ def operation():
 
         if operation == 'addition':
             sum = x + y
-            data = { "slackUsername": slackUsername, "operation_type" : operation, "result": sum }
+            data = { "slackUsername": slackUsername, "result": sum, "operation_type" : operation }
 
             response = json.dumps(data, sort_keys=False)
             return Response(response, mimetype='application/json')
 
         elif operation == 'subtraction':
             minus = x - y
-            data = { "slackUsername": slackUsername, "operation_type" : operation, "result": minus }
+            data = { "slackUsername": slackUsername, "result": minus, "operation_type" : operation }
 
             response = json.dumps(data, sort_keys=False)
             return Response(response, mimetype='application/json')
 
         elif operation == 'multiplication':
             times = x * y
-            data = { "slackUsername": slackUsername, "operation_type" : operation, "result": times }
+            data = { "slackUsername": slackUsername, "result": times, "operation_type" : operation }
 
             response = json.dumps(data, sort_keys=False)
             return Response(response, mimetype='application/json')
